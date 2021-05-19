@@ -43,9 +43,6 @@ public class SnakeLadderPrlm {
 
              switch (option) {
                     case NO_PLAY:
-                         if((position - dice ) < POSITION_CHECK)
-                         System.out.println("Restart game from Starting: " + position);
-                         else
                          System.out.println("Player stays in the same position : " + position);
                          break;
                      case LADDER:
