@@ -12,6 +12,7 @@ public class SnakeLadderPrlm {
    public static void main(String[] args) {
        int playerPosition = 0;
        int position = 0;
+       int totalNoDice = 0;
        System.out.println("Welcome to Snake Ladder Program");
 
 //Player Position Start With Zero
@@ -33,6 +34,7 @@ public class SnakeLadderPrlm {
           {
               option = op.nextInt(4);
                if(option !=0) break;
+              totalNoDice++;
           }
           System.out.println("**OPTIONS**\nOption 1 : No Play\nOption 2 : Ladder \nOption 3 : Snake ");
           System.out.println("Options : " + option);
@@ -63,6 +65,7 @@ public class SnakeLadderPrlm {
                          System.out.println("game running");
                      break;
               }
+              System.out.println("Total number of dice Roll required for win: " + totalNoDice);
            }
         }
     }
