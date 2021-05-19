@@ -41,29 +41,7 @@ public class SnakeLadderPrlm {
 
 //Repeat till the Player get winning point           
 
-               switch (option) {
-                   case NO_PLAY:
-                     System.out.println("Player stays in the same position : " + position);
-                   break;
-                   case LADDER:
-                        position += dice;
-                        if ((position + dice) > POSITION_CHECK)
-                          System.out.println("Player moves ahead by : " + position);
-                   break;
-                   case SNAKE:
-                        position += dice;
-                        if ((position + dice) < POSITION_CHECK){
-                        position = POSITION_CHECK;
-                          System.out.println("Player moves behind by : " + position);
-                        }
-                        else
-                        System.out.println("Player moves behind by: " + position);
-                   break;
-                   default:
-                        System.out.println("Enter correct value");
-                   break;
-              }
-               switch (option) {
+             switch (option) {
                     case NO_PLAY:
                          if((position - dice ) < POSITION_CHECK)
                          System.out.println("Restart game from Starting: " + position);
