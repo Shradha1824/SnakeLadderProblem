@@ -7,6 +7,7 @@ public class SnakeLadderPrlm {
      public static final int LADDER = 2;
      public static final int SNAKE = 3;
      public static final int POSITION_CHECK = 0;
+     public static final int WIN_POSITION = 100;
 
    public static void main(String[] args) {
        int playerPosition = 0;
@@ -22,9 +23,10 @@ public class SnakeLadderPrlm {
         {
              dice = rand.nextInt((6)+1);
                if(dice != 0) break;
+
         }
          System.out.println("Number of dice: " + dice);
-
+          while(position < WIN_POSITION){
           Random op = new Random();
           int option = 0;
           while (true)
@@ -37,28 +39,55 @@ public class SnakeLadderPrlm {
           System.out.println("Number of dice: " + dice);
           System.out.println("Roll Dice: " + dice);
 
-          switch (option) {
-            case NO_PLAY:
+//Repeat till the Player get winning point           
+
+               switch (option) {
+                   case NO_PLAY:
                      System.out.println("Player stays in the same position : " + position);
-            break;
-            case LADDER:
-                position += dice;
-                if ((position + dice) > POSITION_CHECK)
-                     System.out.println("Player moves ahead by : " + position);
-            break;
-            case SNAKE:
-                position += dice;
-                if ((position + dice) < POSITION_CHECK){
-                     position = POSITION_CHECK;
-                     System.out.println("Player moves behind by : " + position);
-                }
-                else
-                     System.out.println("Player moves behind by: " + position);
-            break;
-            default:
-                     System.out.println("Enter correct value");
-            break;
+                   break;
+                   case LADDER:
+                        position += dice;
+                        if ((position + dice) > POSITION_CHECK)
+                          System.out.println("Player moves ahead by : " + position);
+                   break;
+                   case SNAKE:
+                        position += dice;
+                        if ((position + dice) < POSITION_CHECK){
+                        position = POSITION_CHECK;
+                          System.out.println("Player moves behind by : " + position);
+                        }
+                        else
+                        System.out.println("Player moves behind by: " + position);
+                   break;
+                   default:
+                        System.out.println("Enter correct value");
+                   break;
+              }
+               switch (option) {
+                    case NO_PLAY:
+                         if((position - dice ) < POSITION_CHECK)
+                         System.out.println("Restart game from Starting: " + position);
+                         else
+                         System.out.println("Player stays in the same position : " + position);
+                         break;
+                     case LADDER:
+                         position += dice;
+                         if ((position > POSITION_CHECK) && (position < WIN_POSITION)) {
+                         System.out.println("Player moves ahead by : " + position);
+                         }
+                         else  if(position == WIN_POSITION)
+                                 System.out.println("player Reached win position: " + position);
+                         break;
+                     case SNAKE:
+                         position -= dice;
+                         if (((position - dice) > POSITION_CHECK) && (position < 99)) {
+                         System.out.println("Player moves behind by : " + position);
+                         }
+                         break;
+                     default:
+                         System.out.println("game running");
+                     break;
+              }
+           }
         }
     }
-}
-
